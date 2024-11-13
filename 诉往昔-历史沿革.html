@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山海相连，心动无限</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <!-- 新增的时间轴样式 -->
+    <style>
+        /* 整体时间轴容器样式 */
+       .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 0;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        /* 单个时间轴节点样式 */
+       .timeline-node {
+            position: relative;
+            padding: 20px 30px;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* 时间轴节点日期样式 */
+       .timeline-node-date {
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        /* 时间轴节点内容样式 */
+       .timeline-node-content {
+            margin-left: 80px;
+        }
+
+       .timeline-node-content h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper header navbar-fixed-top">
+        <div class="head-top">
+            <div class="container nav-wrapper">
+                <div class="logo col-md-3 col-sm-4 col-xs-12"><img src="images/logo.png"></div>
+                <div class="logo-right col-md-4 col-sm-8 col-xs-12">
+                    <div class="search col-md-12 col-sm-12">
+                        <form class="navbar-form col-xs-6" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="search" value="" placeholder="请输入关键字">
+                            </div>
+                            <button type="submit" class="btn btn-default">搜索</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5 hidden-xs text-right" id="time">当前时间：</div>
+            </div>
+        </div>
+        <!--导航-->
+        <div class="navs">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">首页</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href="content.html">大连概括</a></li> -->
+                            <li><a href="见天地.html">见天地：地理概况</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    诉往昔：历史文化介绍
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="诉往昔-历史沿革.html">历史沿革</a></li>
+                                    <li><a href="诉往昔-城市的博物馆.html">城市的博物馆</a></li>
+                                    <li><a href="诉往昔-非遗介绍.html">非遗介绍</a></li>
+                                    <li><a href="诉往昔-红色印记.html">红色印记</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="听连音.html">听连音：迷人的方言</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    探连美：特色文旅路线
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="探连美-旅游.html">旅游</a></li>
+                                    <li><a href="探连美-美食.html">美食</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="meishi.html"></a></li>
+                            <li><a href="联系我们.html">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!--banner轮播图-->
+    <div class="banner">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/banner1.jpeg" alt="First slide">
+                    <div class="carousel-caption">浪漫海湾名城 唯美大连</div>
+                </div>
+                <div class="item">
+                    <img src="images/banner2.jpeg" alt="Second slide">
+                    <div class="carousel-caption">大连金石国际旅游度假区</div>
+                </div>
+                <div class="item">
+                    <img src="images/banner3.jpeg" alt="Third slide">
+                    <div class="carousel-caption">普湾新区跨海大桥</div>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>你的位置：</li>
+            <li><a href="#">诉往昔</a></li>
+            <li class="active">历史沿革</li>
+        </ol>
+        <div class="col-md-8 main">
+            <h2>历史沿革</h2>
+
+            <!-- 新增的时间轴容器 -->
+            <div class="timeline">
+                <!-- 先秦 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">先秦</div>
+                    <div class="timeline-node-content">
+                        <h3>大连原称呼“青丘”</h3>
+                        <p>汉代出土的周代《逸周书·王会篇》记载：大连原称呼“青丘”。王会，王者之会，系西周时期，诸侯、四夷、藩属朝贡天子的聚会。每当王者之会，不隶属西周王朝，被称为东夷郡主国（酋长国）的少数民族政权，作为纳贡国参会。《王会篇》曰：“青丘，狐九尾。”青丘国的贡品为“九尾狐”。《王会篇》记载了东北各酋长国的历史、物产及与中原王朝的关系。</p>
+                    </div>
+                </div>
+                <!-- 汉 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">汉</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">汉初及西汉时期大连相关建制</h3>
+                        <p>汉初，杳氏县（今大连、旅顺、金州一带地方）属辽东郡所管辖十八县之一。西汉时期，汉武帝元封四年（公元前107年）在此地设置沓县，是大连境内最早的县级建制。今甘井子区内有牧城驿遗址和营城子汉墓，旅顺口区内有牧羊城遗址，表明当时境内经济较为发达，人口稠密。</p>
+                    </div>
+                </div>
+                <!-- 辽代 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">辽代</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">扶州与苏州的设置</h3>
+                        <p>扶州（后改复州，州治在今瓦房店市复州城镇）和苏州，分别作为安置渤海国扶余城所属扶州女真部人，和南苏城迁来的女真人之地，为今瓦房店市和金州区之来源。</p>
+                    </div>
+                </div>
+                <!-- 金代 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">金代</div>
+                    <div class="timeline-node-content">
+                        <h3>金州之名的由来</h3>
+                        <p>称金州，金代将苏州的来苏、怀化二县并为化成县，隶属于复州，后升格为金州。金州之名来源有三种说法：金州城东有肖金山，金州以山得名；金代末年辽东半岛南部大多被蒙军占领。金朝为表抵抗到底之决心，遂改化成县为金州；金州东部地区有丰富的砂金矿，以产金得名。</p>
+                    </div>
+                </div>
+                <!-- 明代 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">明代</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">金、复、盖三州的设置</h3>
+                        <p>于1372年设金、复、盖三州。其中金、复二州属于在今大连境内。</p>
+                    </div>
+                </div>
+                <!-- 清代 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">清代</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">大连地区清代相关建制及政策</h3>
+                        <p>清初大连地区因连年战争而人稀地荒，故先后隶属海城和盖平二县。康熙雍正年间，实行招民垦殖政策，使得人口渐稠。1653年设复州巡检司。1680年设金州城守章京，1687年设金州城守尉。清康熙五十三年（1714年），还将金州城南辽东半岛上全部民人编入旗籍。</p>
+                    </div>
+                </div>
+                <!-- 近代殖民时期 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">近代殖民时期</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">近代殖民时期的变迁</h3>
+                        <p>1895年，甲午战争中方战败，签订马关条约，割让辽东半岛于日本。1898年－1905年，三国（俄、德、法）干涉还辽下，日本撤离。随后沙俄租借大连湾与旅顺口，设达尔尼市，并仿照巴黎市区规划欲将达尔尼建成一座商业城市。1898年，清朝和沙俄签订了《旅大租地条约》。旅顺和大连湾等地，被清朝租借给了沙俄。沙皇改名为“达里尼”，从意思上解读的话，是“遥远的地方”。连读起来很音像“大连”。1904年，日本宣布和沙俄断绝交往，并且在同年，日本的海军强行登陆大连港，将驻扎在此地的沙俄士兵打了个措手不及。1905年，日俄双方签订了合约，大连港及东北一带，转交给日本。日本将“达理安”改成了“大连”。</p>
+                    </div>
+                </div>
+                <!-- 1981年之后 -->
+                <div class="timeline-node">
+                    <div class="timeline-node-date">二战期间</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">旅大市</h3>
+                        <p>称为旅大市。1945年8月10日，苏联正式向日本宣战，苏联红军进攻“满洲国”，进入并占领包括大连在内的东北地区。开始十年中苏共管时期，1950年10月5日，旅大行署区改为东北大行政区代管的旅大直辖市。1951年，旅顺市和大连市两市之上，设立旅大市，类似于地级市和县级市之间的关系。</p>
+                    </div>
+                </div>
+            
+            <div class="timeline-node">
+                    <div class="timeline-node-date">1981年之后</div>
+                    <div class="timeline-node-content">
+                        <h3 style="margin-bottom:20px">旅大市改回大连市</h3>
+                        <p>1981年之后，旅大市再度改回了大连市。</p>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-4">
+            <div class="list-title lightSpeedIn animated">诉往昔：历史文化介绍</div>
+            <ul class="content-list">
+                <li class="lightSpeedIn animated">▪&nbsp;&nbsp;&nbsp;&nbsp;<a href="诉往昔-历史沿革.html">历史沿革</a></li>
+                <li class="lightSpeedIn animated">▪&nbsp;&nbsp;&nbsp;&nbsp;<a href="诉往昔-城市的博物馆.html">城市的博物馆</a></li>
+                <li class="lightSpeedIn animated">▪&nbsp;&nbsp;&nbsp;&nbsp;<a href="诉往昔-非遗介绍.html">非遗介绍</a></li>
+                <li class="lightSpeedIn animated">▪&nbsp;&nbsp;&nbsp;&nbsp;<a href="诉往昔-红色印记.html">红色印记</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- footer 底部 -->
+    <div class="wrapper footer">
+        <div class="container">
+            <div class="copyright col-md-12">
+                <p>版权所有：滨城韵——大连文旅之窗</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 火箭 -->
+    <div style="display:none;" id="rocket-to-top">
+        <div style="opacity:0;display:block;" class="level-2"></div>
+        <div class="level-3"></div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+
+</html>
